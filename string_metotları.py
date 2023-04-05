@@ -13,6 +13,11 @@ result = 'Hello there. My name is Furkan Tozkoparan'
 result = result.title()
 print(result)
 
+# strip: İfade içerisinde başta ve sonda bulunan boşlukların silinmesi işlemini yapar.
+result = '  Hello there. My name is Furkan Tozkoparan  '
+result = result.strip()
+print(result)
+
 # Split: İfade içerisinde yer alan boşluk karakterlerinden bölünür ve bir karakter dizisi olarak gelir.
 result = 'Hello there. My name is Furkan Tozkoparan'
 result = result.split()
