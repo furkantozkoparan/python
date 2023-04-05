@@ -1,4 +1,3 @@
-
 # Upper: Tüm karakterleri büyük harf yapar.
 result = 'Hello there. My name is Furkan Tozkoparan'
 result = result.upper()
