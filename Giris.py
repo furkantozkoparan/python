@@ -58,3 +58,38 @@ print("Merhaba, " + name)
 r= 5 == 4
 print(r)
 # Bu ifade r degerinde bulunan esitlik icerisinde testi yapar ve bize geri doner. Sonuc olarak 5, 4'e eşit olmadigi icin 'False' olarak doner.
+
+# if: Eğer ifadesidir ve yalnizca True olan sonuclarda calisir. Ornegin: Bir sayının 2 ile bölümü 0'a eşit mi sağlamasını yapıp eğer eşit ise print et yapılabilir.
+r = int(input('Sayı Giriniz:'))
+if r % 2 == 0:
+    print('Sayınız Çift')
+print('Program Sonlandı')
+#Sayi giriniz seçeneginde sayi 4 verildi 2 ile bolumunden kalan 0'a esit oldugu icin True sonuc aldik ve sonuc olarak True dondugu icin 'Sayiniz cift' sonrasinda ise 'program sonlandi' döner.
+
+# else: if sorgusu bize True olarak donmezse bu secenek yazilabilir. Ornegin: eğer bir sayinin 2 ile bolumunden kalan 0 ise 'sayiniz cift' yazsin fakat degil ise 'sayiniz tek' yazsin.
+r = int(input('Sayı Giriniz:'))
+if r % 2 == 0:
+    print('Sayınız Çift')
+else:
+    print('Sayınız Tek')
+print('Program Sonlandı')
+# Yapilan sorguda sayi 5 olarak girildi ve 2 ile bolumunden kalan 0 olmadigi icin else kisminda yazan alindi. Sonuc olarak 'Sayiniz tek' ve sonrasinde 'Program sonlandi' döner.
+
+# elif: if sorgusuna ektra olarak bir sorgu daha yazmamiza yarar. 
+r = int(input("Bir sayı girin: "))
+if r < 10:
+    print("Sayı 10'dan küçük")
+elif r == 10:
+    print("Sayı 10'a eşit")
+else:
+    print("Sayı 10'dan büyük")
+print("Programınız sona ulaştı")
+
+# if-else ile belirli bir durum test edilip alt sorgudaki sonucu bu teste gore belirleyebiliriz. Ornegin: Cevabi x: evet y:hayır olan bir soru sordugumuzda alinan cevaba gore sonuc yazdirilabilir.
+cevap = input("x in değeri 2 olsun mu? y/n")
+if cevap == "y":
+    x = 2
+else:
+    x = 0
+print(x)
+# Yapilan sorguda x'in degerinin iki olmasini isteme durumuna gore deger atayacaktir. yes seçersek bize sonuc olarak 2 yazdirir n seçersek bize sonuc olarak 0 yazdirir.
