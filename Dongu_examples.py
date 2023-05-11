@@ -23,3 +23,16 @@ for i in x:
     if i % 2 == 0:
         ciftler.append(i)
 print(ciftler)
+
+# For Döngüsüyle Girilen 10 Sayının Toplamını Bulun.
+toplam = 0
+for i in range(1, 11):
+    x = int(input("Bir Sayı Giriniz: "))
+    toplam += x
+print(toplam)
+
+#Kullanıcıdan bir sayı isteyerek, For döngüsü kullanarak 1′ den girilen bu sayıya kadar olan sayıları listeleyin.
+sayi = 1
+x = int(input("Bir Sayı Giriniz: "))
+for i in range(1, x):
+  print(i)
