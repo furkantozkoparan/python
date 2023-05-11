@@ -59,14 +59,16 @@ r= 5 == 4
 print(r)
 # Bu ifade r degerinde bulunan esitlik icerisinde testi yapar ve bize geri doner. Sonuc olarak 5, 4'e eşit olmadigi icin 'False' olarak doner.
 
-# if: Eğer ifadesidir ve yalnizca True olan sonuclarda calisir. Ornegin: Bir sayının 2 ile bölümü 0'a eşit mi sağlamasını yapıp eğer eşit ise print et yapılabilir.
+İf
+# Eğer ifadesidir ve yalnizca True olan sonuclarda calisir. Ornegin: Bir sayının 2 ile bölümü 0'a eşit mi sağlamasını yapıp eğer eşit ise print et yapılabilir.
 r = int(input('Sayı Giriniz:'))
 if r % 2 == 0:
     print('Sayınız Çift')
 print('Program Sonlandı')
 #Sayi giriniz seçeneginde sayi 4 verildi 2 ile bolumunden kalan 0'a esit oldugu icin True sonuc aldik ve sonuc olarak True dondugu icin 'Sayiniz cift' sonrasinda ise 'program sonlandi' döner.
 
-# else: if sorgusu bize True olarak donmezse bu secenek yazilabilir. Ornegin: eğer bir sayinin 2 ile bolumunden kalan 0 ise 'sayiniz cift' yazsin fakat degil ise 'sayiniz tek' yazsin.
+Else
+# if sorgusu bize True olarak donmezse bu secenek yazilabilir. Ornegin: eğer bir sayinin 2 ile bolumunden kalan 0 ise 'sayiniz cift' yazsin fakat degil ise 'sayiniz tek' yazsin.
 r = int(input('Sayı Giriniz:'))
 if r % 2 == 0:
     print('Sayınız Çift')
@@ -75,7 +77,8 @@ else:
 print('Program Sonlandı')
 # Yapilan sorguda sayi 5 olarak girildi ve 2 ile bolumunden kalan 0 olmadigi icin else kisminda yazan alindi. Sonuc olarak 'Sayiniz tek' ve sonrasinde 'Program sonlandi' döner.
 
-# elif: if sorgusuna ektra olarak bir sorgu daha yazmamiza yarar. 
+Elif
+# if sorgusuna ektra olarak bir sorgu daha yazmamiza yarar. 
 r = int(input("Bir sayı girin: "))
 if r < 10:
     print("Sayı 10'dan küçük")
