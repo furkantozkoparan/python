@@ -1,0 +1,186 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# X ve Y değerlerini manuel olarak tanımlama
+x_values = [400, 800, 1200, 1600, 2000]  # Örnek X değerleri
+y_values = [1.0, 2.0, 3.0, 4.0]  # Örnek Y değerleri
+
+# S2 çizgisini oluşturun
+S2_third_x_values = [150, 270, 485, 910, 1620]  # S2 çizgisinin x değerleri
+S2_third_y_values = [3.22, 2.16, 1.52, 0.83, 0.83]  # S2 çizgisinin y değerleri
+
+# S1 çizgisini oluşturun
+S1_third_x_values = [150, 270, 485, 910, 1620]  # S1 çizgisinin x değerleri
+S1_third_y_values = [4.20, 2.38, 1.54, 0.83, 0.83]  # S1 çizgisinin y değerleri
+
+# S3 çizgisini oluşturun
+S3_third_x_values = [150, 270, 485, 910, 1620]  # S3 çizgisinin x değerleri
+S3_third_y_values = [2.74, 1.98, 1.50, 0.83, 0.83]  # S3 çizgisinin y değerleri
+
+# S4 çizgisini oluşturun
+S4_third_x_values = [150, 270, 485, 910, 1620]  # S4 çizgisinin x değerleri
+S4_third_y_values = [2.38, 1.90, 1.48, 0.83, 0.83]  # S4 çizgisinin y değerleri
+
+# S5 çizgisini oluşturun
+S5_third_x_values = [150, 270, 485, 910, 1620]  # S5 çizgisinin x değerleri
+S5_third_y_values = [2.18, 1.80, 1.46, 0.83, 0.83]  # S5 çizgisinin y değerleri
+
+# S6 çizgisini oluşturun
+S6_third_x_values = [150, 270, 485, 910, 1620]  # S6 çizgisinin x değerleri
+S6_third_y_values = [1.98, 1.75, 1.44, 0.83, 0.83]  # S6 çizgisinin y değerleri
+
+# Excel dosyasının yolu
+dosya_yolu = r'C:\Users\furkan.tozkoparan\Desktop\MASAÜSTÜ\TEST_PY.xlsx'
+
+# Excel dosyasını oku
+veri = pd.read_excel(dosya_yolu)
+
+# 'a' sütunundaki tüm X değerlerini al
+x_sorgular = veri['a'].tolist()
+
+# Kesişim noktalarını hesapla
+S2_intersection_y = []
+S1_intersection_y = []
+S3_intersection_y = []
+S4_intersection_y = []
+S5_intersection_y = []
+S6_intersection_y = []
+
+for x_sorgu in x_sorgular:
+    # S2 çizgisi ile kesişim noktasını hesapla
+    for i in range(len(S2_third_x_values) - 1):
+        if S2_third_x_values[i] <= x_sorgu <= S2_third_x_values[i + 1]:
+            x1, x2 = S2_third_x_values[i], S2_third_x_values[i + 1]
+            y1, y2 = S2_third_y_values[i], S2_third_y_values[i + 1]
+            S2_intersection_y.append(y1 + (x_sorgu - x1) * ((y2 - y1) / (x2 - x1)))
+            break
+    else:
+        S2_intersection_y.append(None)  # Eğer X sorgusu S2 çizgisinin dışındaysa None yap
+
+    # S1 çizgisi ile kesişim noktasını hesapla
+    for i in range(len(S1_third_x_values) - 1):
+        if S1_third_x_values[i] <= x_sorgu <= S1_third_x_values[i + 1]:
+            x1, x2 = S1_third_x_values[i], S1_third_x_values[i + 1]
+            y1, y2 = S1_third_y_values[i], S1_third_y_values[i + 1]
+            S1_intersection_y.append(y1 + (x_sorgu - x1) * ((y2 - y1) / (x2 - x1)))
+            break
+    else:
+        S1_intersection_y.append(None)  # Eğer X sorgusu S1 çizgisinin dışındaysa None yap
+
+    # S3 çizgisi ile kesişim noktasını hesapla
+    for i in range(len(S3_third_x_values) - 1):
+        if S3_third_x_values[i] <= x_sorgu <= S3_third_x_values[i + 1]:
+            x1, x2 = S3_third_x_values[i], S3_third_x_values[i + 1]
+            y1, y2 = S3_third_y_values[i], S3_third_y_values[i + 1]
+            S3_intersection_y.append(y1 + (x_sorgu - x1) * ((y2 - y1) / (x2 - x1)))
+            break
+    else:
+        S3_intersection_y.append(None)  # Eğer X sorgusu S3 çizgisinin dışındaysa None yap
+
+    # S4 çizgisi ile kesişim noktasını hesapla
+    for i in range(len(S4_third_x_values) - 1):
+        if S4_third_x_values[i] <= x_sorgu <= S4_third_x_values[i + 1]:
+            x1, x2 = S4_third_x_values[i], S4_third_x_values[i + 1]
+            y1, y2 = S4_third_y_values[i], S4_third_y_values[i + 1]
+            S4_intersection_y.append(y1 + (x_sorgu - x1) * ((y2 - y1) / (x2 - x1)))
+            break
+    else:
+        S4_intersection_y.append(None)  # Eğer X sorgusu S4 çizgisinin dışındaysa None yap
+
+    # S5 çizgisi ile kesişim noktasını hesapla
+    for i in range(len(S5_third_x_values) - 1):
+        if S5_third_x_values[i] <= x_sorgu <= S5_third_x_values[i + 1]:
+            x1, x2 = S5_third_x_values[i], S5_third_x_values[i + 1]
+            y1, y2 = S5_third_y_values[i], S5_third_y_values[i + 1]
+            S5_intersection_y.append(y1 + (x_sorgu - x1) * ((y2 - y1) / (x2 - x1)))
+            break
+    else:
+        S5_intersection_y.append(None)  # Eğer X sorgusu S5 çizgisinin dışındaysa None yap
+
+    # S6 çizgisi ile kesişim noktasını hesapla
+    for i in range(len(S6_third_x_values) - 1):
+        if S6_third_x_values[i] <= x_sorgu <= S6_third_x_values[i + 1]:
+            x1, x2 = S6_third_x_values[i], S6_third_x_values[i + 1]
+            y1, y2 = S6_third_y_values[i], S6_third_y_values[i + 1]
+            S6_intersection_y.append(y1 + (x_sorgu - x1) * ((y2 - y1) / (x2 - x1)))
+            break
+    else:
+        S6_intersection_y.append(None)  # Eğer X sorgusu S6 çizgisinin dışındaysa None yap
+
+# Kesişim noktalarının Y değerlerini yazdır
+for i, x_sorgu in enumerate(x_sorgular):
+    if S1_intersection_y[i] is not None:
+        print(f"X={x_sorgu} için S1 Third Kesişim Y={S1_intersection_y[i]}")
+    if S2_intersection_y[i] is not None:
+        print(f"X={x_sorgu} için S2 Third Kesişim Y={S2_intersection_y[i]}")
+    if S3_intersection_y[i] is not None:
+        print(f"X={x_sorgu} için S3 Third Kesişim Y={S3_intersection_y[i]}")
+    if S4_intersection_y[i] is not None:
+        print(f"X={x_sorgu} için S4 Third Kesişim Y={S4_intersection_y[i]}")
+    if S5_intersection_y[i] is not None:
+        print(f"X={x_sorgu} için S5 Third Kesişim Y={S5_intersection_y[i]}")
+    if S6_intersection_y[i] is not None:
+        print(f"X={x_sorgu} için S6 Third Kesişim Y={S6_intersection_y[i]}")
+
+# Kesişim noktalarını bir veri çerçevesine ekle
+intersection_data = {
+    'X Değeri': x_sorgular,
+    'S1 Third Kesişim': S1_intersection_y,
+    'S2 Third Kesişim': S2_intersection_y,
+    'S3 Third Kesişim': S3_intersection_y,
+    'S4 Third Kesişim': S4_intersection_y,
+    'S5 Third Kesişim': S5_intersection_y,
+    'S6 Third Kesişim': S6_intersection_y,
+}
+
+intersection_df = pd.DataFrame(intersection_data)
+
+# Veriyi Excel dosyasına yazdır
+intersection_df.to_excel('kesisim_noktalari.xlsx', index=False)
+
+# X ekseni sınırlarını ayarlayın
+plt.xlim(0, 2000)  # X ekseni sınırları 0 ile 2000 arasında
+plt.xticks([400, 800, 1200, 1600, 2000])  # X ekseni işaretleri
+
+plt.ylim(0, 5.0)  # X ekseni sınırları 0 ile 5 arasında
+plt.yticks([1.0, 2.0, 3.0, 4.0, 5.0])  # Y ekseni işaretleri
+
+# S2, S1, S3, S4, S5 ve S6 çizgilerini çizme
+plt.plot(S2_third_x_values, S2_third_y_values, marker='x', linestyle='--', color='r', label='S2 Third Çizgisi')
+plt.plot(S1_third_x_values, S1_third_y_values, marker='o', linestyle='-', color='b', label='S1 Third Çizgisi')
+plt.plot(S3_third_x_values, S3_third_y_values, marker='s', linestyle='-', color='g', label='S3 Third Çizgisi')
+plt.plot(S4_third_x_values, S4_third_y_values, marker='d', linestyle='-', color='y', label='S4 Third Çizgisi')
+plt.plot(S5_third_x_values, S5_third_y_values, marker='^', linestyle='-', color='m', label='S5 Third Çizgisi')
+plt.plot(S6_third_x_values, S6_third_y_values, marker='p', linestyle='-', color='c', label='S6 Third Çizgisi')
+
+# Kesişim noktalarını gösterme
+for i, x_sorgu in enumerate(x_sorgular):
+    if S2_intersection_y[i] is not None:
+        plt.scatter(x_sorgu, S2_intersection_y[i], color='m', marker='s', s=100,
+                    label=f'S2 Third Kesişim (X={x_sorgu}, Y={S2_intersection_y[i]})')
+    if S1_intersection_y[i] is not None:
+        plt.scatter(x_sorgu, S1_intersection_y[i], color='c', marker='o', s=100,
+                    label=f'S1 Third Kesişim (X={x_sorgu}, Y={S1_intersection_y[i]})')
+    if S3_intersection_y[i] is not None:
+        plt.scatter(x_sorgu, S3_intersection_y[i], color='k', marker='o', s=100,
+                    label=f'S3 Third Kesişim (X={x_sorgu}, Y={S3_intersection_y[i]})')
+    if S4_intersection_y[i] is not None:
+        plt.scatter(x_sorgu, S4_intersection_y[i], color='b', marker='s', s=100,
+                    label=f'S4 Third Kesişim (X={x_sorgu}, Y={S4_intersection_y[i]})')
+    if S5_intersection_y[i] is not None:
+        plt.scatter(x_sorgu, S5_intersection_y[i], color='y', marker='^', s=100,
+                    label=f'S5 Third Kesişim (X={x_sorgu}, Y={S5_intersection_y[i]})')
+    if S6_intersection_y[i] is not None:
+        plt.scatter(x_sorgu, S6_intersection_y[i], color='g', marker='p', s=100,
+                    label=f'S6 Third Kesişim (X={x_sorgu}, Y={S6_intersection_y[i]})')
+
+plt.xlabel('X Ekseni')
+plt.ylabel('Y Ekseni')
+plt.title('Third Çizgilerini Kullanan Grafik')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# Excel dosyasını belirtilen dosya yoluna kaydet
+excel_kayit_yolu = r'C:\Users\furkan.tozkoparan\Desktop\Test\kesisim_noktalari.xlsx'
+intersection_df.to_excel(excel_kayit_yolu, index=False)
