@@ -38,3 +38,23 @@ alt_klasor_fotograflara_F_ekle(kok_klasor, ana_klasor_adi)
 
 #ARCMAP BUL-DEĞİŞTİR..
 !YourField!.replace("/", "_")
+
+
+
+#Klasörden kopyalama isimlerin içeriğine göre..
+
+import os
+import shutil
+
+# Kaynak ve hedef dizinler
+kaynak_dizin = r"P:\01-KENTSEL YENİLEME MERKEZI\7100_AFET BÖLGESİ\7130_HATAY\7132_ANTAKYA_DEFNE\04-SAHA ÇALIŞMALARI\BİNA ANALİZ NO DOSYALAR\36 HA DOSYALAR\YAPI"
+hedef_dizin = r"P:\01-KENTSEL YENİLEME MERKEZI\7100_AFET BÖLGESİ\7130_HATAY\7132_ANTAKYA_DEFNE\16-TESLİM\36_HA_TESLİM\8-CBS\YAPI"
+
+# Kaynak dizindeki klasörleri kontrol et
+for klasor_adı in os.listdir(kaynak_dizin):
+    klasor_yolu = os.path.join(kaynak_dizin, klasor_adı)
+    if os.path.isdir(klasor_yolu) and "_" in klasor_adı and klasor_adı.count("_") == 2:
+        # Hedef dizine kopyala
+        hedef_klasor_yolu = os.path.join(hedef_dizin, klasor_adı)
+        shutil.copytree(klasor_yolu, hedef_klasor_yolu)
+        print(f"{klasor_adı} klasörü kopyalandı.")
